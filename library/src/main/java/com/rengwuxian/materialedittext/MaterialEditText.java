@@ -432,11 +432,9 @@ public class MaterialEditText extends AppCompatEditText {
     innerPaddingBottom = paddingsTypedArray.getDimensionPixelSize(4, padding);
     paddingsTypedArray.recycle();
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-      setBackground(null);
-    } else {
-      setBackgroundDrawable(null);
-    }
+   // setBackground(null);
+//    setBackgroundColor(typedArray.getColor(R.styleable.MaterialEditText_met_backgroundColor,0));
+
     if (singleLineEllipsis) {
       TransformationMethod transformationMethod = getTransformationMethod();
       setSingleLine();
@@ -1409,9 +1407,6 @@ public class MaterialEditText extends AppCompatEditText {
 
   @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
   private boolean isRTL() {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      return false;
-    }
     Configuration config = getResources().getConfiguration();
     return config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
   }
